@@ -1,0 +1,312 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C0A3A34216C6D4EA0093E060 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A3A34116C6D4EA0093E060 /* UIKit.framework */; };
+		C0A3A34416C6D4EA0093E060 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A3A34316C6D4EA0093E060 /* Foundation.framework */; };
+		C0A3A34616C6D4EA0093E060 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A3A34516C6D4EA0093E060 /* CoreGraphics.framework */; };
+		C0A3A34C16C6D4EA0093E060 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C0A3A34A16C6D4EA0093E060 /* InfoPlist.strings */; };
+		C0A3A34E16C6D4EA0093E060 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A3A34D16C6D4EA0093E060 /* main.m */; };
+		C0A3A35216C6D4EA0093E060 /* SEGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A3A35116C6D4EA0093E060 /* SEGAppDelegate.m */; };
+		C0A3A35416C6D4EA0093E060 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C0A3A35316C6D4EA0093E060 /* Default.png */; };
+		C0A3A35616C6D4EA0093E060 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0A3A35516C6D4EA0093E060 /* Default@2x.png */; };
+		C0A3A35816C6D4EA0093E060 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0A3A35716C6D4EA0093E060 /* Default-568h@2x.png */; };
+		C0A3A35B16C6D4EA0093E060 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0A3A35916C6D4EA0093E060 /* MainStoryboard.storyboard */; };
+		C0A3A35E16C6D4EA0093E060 /* SEGMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A3A35D16C6D4EA0093E060 /* SEGMasterViewController.m */; };
+		C0A3A36116C6D4EA0093E060 /* SEGDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A3A36016C6D4EA0093E060 /* SEGDetailViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C0A3A33E16C6D4EA0093E060 /* Hacker News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hacker News.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0A3A34116C6D4EA0093E060 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C0A3A34316C6D4EA0093E060 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C0A3A34516C6D4EA0093E060 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C0A3A34916C6D4EA0093E060 /* Hacker News-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Hacker News-Info.plist"; sourceTree = "<group>"; };
+		C0A3A34B16C6D4EA0093E060 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C0A3A34D16C6D4EA0093E060 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C0A3A34F16C6D4EA0093E060 /* Hacker News-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hacker News-Prefix.pch"; sourceTree = "<group>"; };
+		C0A3A35016C6D4EA0093E060 /* SEGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEGAppDelegate.h; sourceTree = "<group>"; };
+		C0A3A35116C6D4EA0093E060 /* SEGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEGAppDelegate.m; sourceTree = "<group>"; };
+		C0A3A35316C6D4EA0093E060 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		C0A3A35516C6D4EA0093E060 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		C0A3A35716C6D4EA0093E060 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		C0A3A35A16C6D4EA0093E060 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		C0A3A35C16C6D4EA0093E060 /* SEGMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEGMasterViewController.h; sourceTree = "<group>"; };
+		C0A3A35D16C6D4EA0093E060 /* SEGMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEGMasterViewController.m; sourceTree = "<group>"; };
+		C0A3A35F16C6D4EA0093E060 /* SEGDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEGDetailViewController.h; sourceTree = "<group>"; };
+		C0A3A36016C6D4EA0093E060 /* SEGDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEGDetailViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C0A3A33B16C6D4EA0093E060 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0A3A34216C6D4EA0093E060 /* UIKit.framework in Frameworks */,
+				C0A3A34416C6D4EA0093E060 /* Foundation.framework in Frameworks */,
+				C0A3A34616C6D4EA0093E060 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C0A3A33516C6D4EA0093E060 = {
+			isa = PBXGroup;
+			children = (
+				C0A3A34716C6D4EA0093E060 /* Hacker News */,
+				C0A3A34016C6D4EA0093E060 /* Frameworks */,
+				C0A3A33F16C6D4EA0093E060 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C0A3A33F16C6D4EA0093E060 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C0A3A33E16C6D4EA0093E060 /* Hacker News.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C0A3A34016C6D4EA0093E060 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0A3A34116C6D4EA0093E060 /* UIKit.framework */,
+				C0A3A34316C6D4EA0093E060 /* Foundation.framework */,
+				C0A3A34516C6D4EA0093E060 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C0A3A34716C6D4EA0093E060 /* Hacker News */ = {
+			isa = PBXGroup;
+			children = (
+				C0A3A35016C6D4EA0093E060 /* SEGAppDelegate.h */,
+				C0A3A35116C6D4EA0093E060 /* SEGAppDelegate.m */,
+				C0A3A35916C6D4EA0093E060 /* MainStoryboard.storyboard */,
+				C0A3A35C16C6D4EA0093E060 /* SEGMasterViewController.h */,
+				C0A3A35D16C6D4EA0093E060 /* SEGMasterViewController.m */,
+				C0A3A35F16C6D4EA0093E060 /* SEGDetailViewController.h */,
+				C0A3A36016C6D4EA0093E060 /* SEGDetailViewController.m */,
+				C0A3A34816C6D4EA0093E060 /* Supporting Files */,
+			);
+			path = "Hacker News";
+			sourceTree = "<group>";
+		};
+		C0A3A34816C6D4EA0093E060 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C0A3A34916C6D4EA0093E060 /* Hacker News-Info.plist */,
+				C0A3A34A16C6D4EA0093E060 /* InfoPlist.strings */,
+				C0A3A34D16C6D4EA0093E060 /* main.m */,
+				C0A3A34F16C6D4EA0093E060 /* Hacker News-Prefix.pch */,
+				C0A3A35316C6D4EA0093E060 /* Default.png */,
+				C0A3A35516C6D4EA0093E060 /* Default@2x.png */,
+				C0A3A35716C6D4EA0093E060 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C0A3A33D16C6D4EA0093E060 /* Hacker News */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0A3A36416C6D4EA0093E060 /* Build configuration list for PBXNativeTarget "Hacker News" */;
+			buildPhases = (
+				C0A3A33A16C6D4EA0093E060 /* Sources */,
+				C0A3A33B16C6D4EA0093E060 /* Frameworks */,
+				C0A3A33C16C6D4EA0093E060 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hacker News";
+			productName = "Hacker News";
+			productReference = C0A3A33E16C6D4EA0093E060 /* Hacker News.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C0A3A33616C6D4EA0093E060 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SEG;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Samuel E. Giddins";
+			};
+			buildConfigurationList = C0A3A33916C6D4EA0093E060 /* Build configuration list for PBXProject "Hacker News" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C0A3A33516C6D4EA0093E060;
+			productRefGroup = C0A3A33F16C6D4EA0093E060 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C0A3A33D16C6D4EA0093E060 /* Hacker News */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C0A3A33C16C6D4EA0093E060 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0A3A34C16C6D4EA0093E060 /* InfoPlist.strings in Resources */,
+				C0A3A35416C6D4EA0093E060 /* Default.png in Resources */,
+				C0A3A35616C6D4EA0093E060 /* Default@2x.png in Resources */,
+				C0A3A35816C6D4EA0093E060 /* Default-568h@2x.png in Resources */,
+				C0A3A35B16C6D4EA0093E060 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C0A3A33A16C6D4EA0093E060 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0A3A34E16C6D4EA0093E060 /* main.m in Sources */,
+				C0A3A35216C6D4EA0093E060 /* SEGAppDelegate.m in Sources */,
+				C0A3A35E16C6D4EA0093E060 /* SEGMasterViewController.m in Sources */,
+				C0A3A36116C6D4EA0093E060 /* SEGDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C0A3A34A16C6D4EA0093E060 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C0A3A34B16C6D4EA0093E060 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C0A3A35916C6D4EA0093E060 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C0A3A35A16C6D4EA0093E060 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C0A3A36216C6D4EA0093E060 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C0A3A36316C6D4EA0093E060 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C0A3A36516C6D4EA0093E060 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Hacker News/Hacker News-Prefix.pch";
+				INFOPLIST_FILE = "Hacker News/Hacker News-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C0A3A36616C6D4EA0093E060 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Hacker News/Hacker News-Prefix.pch";
+				INFOPLIST_FILE = "Hacker News/Hacker News-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C0A3A33916C6D4EA0093E060 /* Build configuration list for PBXProject "Hacker News" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0A3A36216C6D4EA0093E060 /* Debug */,
+				C0A3A36316C6D4EA0093E060 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0A3A36416C6D4EA0093E060 /* Build configuration list for PBXNativeTarget "Hacker News" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0A3A36516C6D4EA0093E060 /* Debug */,
+				C0A3A36616C6D4EA0093E060 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C0A3A33616C6D4EA0093E060 /* Project object */;
+}
