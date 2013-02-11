@@ -18,6 +18,13 @@
 
 #import "JHWebBrowser.h"
 
+// Share items
+#import "ARChromeActivity.h"
+#import "ZYInstapaperActivity.h"
+#import "TUSafariActivity.h"
+#import "ALBPinbookActivity.h"
+
+
 @interface JHWebBrowser ()
 
 @property (nonatomic, strong) UIBarButtonItem *_backButton;
@@ -26,8 +33,11 @@
 @property (nonatomic, strong) UIBarButtonItem *_refreshButton;
 @property (nonatomic, strong) UIBarButtonItem *_actionButton;
 @property (nonatomic, strong) UIBarButtonItem *_doneButton;
+@property (nonatomic, strong) UIBarButtonItem *_toggleCommentButton;
+@property (nonatomic, strong) UIBarButtonItem *_instapaperButton;
 @property (nonatomic) BOOL _firstRequest;
 @property (nonatomic, strong) NSString *_dataMimeType;
+@property UIPopoverController *activityPopover;
 
 @end
 
@@ -56,8 +66,10 @@
 @synthesize _refreshButton;
 @synthesize _actionButton;
 @synthesize _doneButton;
+@synthesize _instapaperButton;
 @synthesize _firstRequest;
 @synthesize _dataMimeType;
+@synthesize _toggleCommentButton;
 
 
 #pragma mark - Utility
@@ -84,10 +96,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     // Default to loading text
 	titleLabel.text = @"Loading...";
-	
+
 	urlField.clearButtonMode = UITextFieldViewModeAlways;
 	urlField.keyboardType = UIKeyboardTypeURL;
 	urlField.returnKeyType = UIReturnKeyGo;
@@ -103,7 +115,7 @@
 
 - (void)viewDidUnload {
 	[super viewDidUnload];
-	
+
 	_webView.delegate = nil;
 	[_webView stopLoading];
 }
@@ -130,7 +142,7 @@
     self->url = inUrl;
     self->data = nil;
     self->html = nil;
-    
+
     if (self.view) {
         [self loadContent];
     }
@@ -140,11 +152,11 @@
     self->data = inData;
     self->url = nil;
     self->html = nil;
-    
+
     if ( ! mimeType) {
         mimeType = @"text/html";
     }
-    
+
     self->_dataMimeType = mimeType;
 
     if (self.view) {
@@ -164,7 +176,7 @@
 
 - (void)setShowDoneButton:(BOOL)inShowDoneButton {
     self->showDoneButton = inShowDoneButton;
-    
+
     [self setToolbarButtons];
 }
 
@@ -195,22 +207,28 @@
     [self setVisibleComponentsAnimated:animated];
 }
 
+- (void)setCanDoTextOnly:(BOOL)canDoTextOnly
+{
+    _canDoTextOnly = canDoTextOnly;
+    [self setToolbarButtons];
+}
+
 - (void)setVisibleComponentsAnimated:(BOOL)animated {
     CGRect titleFrame = self.titleToolbar.frame;
     CGRect addressFrame = self.addressToolbar.frame;
     CGRect toolbarFrame = self.toolbar.frame;
     CGRect webFrame = self.view.bounds;
-    
+
     // Title Bar
     if (showTitleBar) {
         titleFrame.origin.y = 0;
-        
+
         webFrame.origin.y += 24;
         webFrame.size.height -= 24;
     } else {
         titleFrame.origin.y = 0 - titleFrame.size.height;
     }
-    
+
     // Address Bar
     if (showAddressBar) {
         addressFrame.origin.y = (showTitleBar) ? 24 : 0;
@@ -220,13 +238,13 @@
     } else {
         addressFrame.origin.y = 0 - addressFrame.size.height;
     }
-    
+
     // Toolbar
     if (showToolbar) {
         webFrame.size.height -= 44;
     }
     toolbarFrame.origin.y = webFrame.origin.y + webFrame.size.height;
-    
+
     // Set frame
     if (animated) {
         [UIView animateWithDuration:0.3
@@ -258,35 +276,40 @@
                                                                             target:nil
                                                                             action:nil];
 	fSpace.width = 28.0f;
-	
+
 	_backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backIcon.png"]
                                                   style:UIBarButtonItemStylePlain
                                                  target:self
                                                  action:@selector(backAction)];
-	
+
 	_forwardButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"forwardIcon.png"]
                                                      style:UIBarButtonItemStylePlain
                                                     target:self
                                                     action:@selector(forwardAction)];
-	
+
 	_actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                                                  target:self
-                                                                 action:@selector(actionButtonPressed)];
-	
+                                                                  action:@selector(actionButtonPressed:)];
+
 	_refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
 																  target:self
 																  action:@selector(refreshAction)];
 	_refreshButton.tag = 3;
-	
+
 	_stopButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop
 															   target:self
 															   action:@selector(stopAction)];
 	_stopButton.tag = 3;
-	
+
     _doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleBordered
                                                   target:self
                                                   action:@selector(doneButtonPressed)];
-    
+
+    _instapaperButton = [[UIBarButtonItem alloc] initWithTitle:@"Text View"
+                                                         style:UIBarButtonItemStyleBordered
+                                                        target:self
+                                                        action:@selector(toggleInstapaper)];
+
 	NSMutableArray *toolBarItems;
     toolBarItems = [NSMutableArray arrayWithObjects:
                     _backButton,
@@ -295,14 +318,24 @@
                     fSpace,
                     _refreshButton,
                     vSpace,
-                    _actionButton,
                     nil];
-    
+
+    if (_canDoTextOnly) {
+        [toolBarItems addObjectsFromArray:@[_instapaperButton, fSpace]];
+    }
+
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        _toggleCommentButton = [[UIBarButtonItem alloc] initWithTitle:@"Comments" style:UIBarButtonItemStyleBordered target:self.presentingViewController action:@selector(toggleComment)];
+        [toolBarItems addObjectsFromArray:@[_toggleCommentButton,fSpace]];
+    }
+
+    [toolBarItems addObjectsFromArray:@[_actionButton]];
+
 	if (showDoneButton) {
         [toolBarItems addObject:fSpace];
         [toolBarItems addObject:_doneButton];
     }
-	
+
 	[toolbar setItems:toolBarItems];
 }
 
@@ -310,21 +343,51 @@
 	if (self.navigationController) {
 		[self.navigationController popViewControllerAnimated:YES];
 	} else {
-		[self dismissModalViewControllerAnimated:YES];
+		[self dismissViewControllerAnimated:YES completion:NULL];
 	}
 }
 
-- (IBAction)actionButtonPressed {
-	UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"Open in Safari" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Yes", nil];
-    
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        if (self.view.superview) {
-            [as showInView:self.view.superview];
-        } else {
-            [as showInView:self.view];
-        }
+- (void)toggleInstapaper {
+    if (self.textOnlyView) {
+        self.url = self.baseUrl;
     } else {
-        [as showFromBarButtonItem:_actionButton animated:YES];
+        self.baseUrl = url;
+        self.url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.instapaper.com/text?u=%@", self.baseUrl]];
+    }
+    self.textOnlyView = !self.textOnlyView;
+    [self setShowTitleBar:(!self.textOnlyView && [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)];
+}
+
+- (IBAction)actionButtonPressed:(id)sender {
+//	UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"Open in Safari" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Yes", nil];
+//
+//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+//        if (self.view.superview) {
+//            [as showInView:self.view.superview];
+//        } else {
+//            [as showInView:self.view];
+//        }
+//    } else {
+//        [as showFromBarButtonItem:_actionButton animated:YES];
+//    }
+
+    ARChromeActivity     *chromeActivity     = [[ARChromeActivity alloc] init];
+    ZYInstapaperActivity *instapaperActivity = [ZYInstapaperActivity instance];
+    TUSafariActivity     *safariActivity     = [[TUSafariActivity alloc] init];
+    ALBPinbookActivity   *pinbookActivity    = [[ALBPinbookActivity alloc] init];
+
+
+    NSArray *activityItems = @[self.url, [self.delegate titleToShare]];
+    NSArray *appActivities = @[chromeActivity, instapaperActivity, safariActivity, pinbookActivity];
+
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:appActivities];
+    activityVC.excludedActivityTypes = @[UIActivityTypePostToWeibo];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        self.activityPopover = [[UIPopoverController alloc] initWithContentViewController:activityVC];
+        [self.activityPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
+    else {
+        [self presentViewController:activityVC animated:TRUE completion:nil];
     }
 }
 
@@ -359,14 +422,14 @@
         [_webView loadData:data MIMEType:_dataMimeType textEncodingName:@"utf-8" baseURL:nil];
     } else if (html) {
         NSString *wrapperHTML = @"<html><head><meta name = \"viewport\" content = \"width = device-width\"><link rel=\"stylesheet\" media=\"all\" href=\"WebView.css\" /></head><body>%@</body></html>";
-        
+
         NSString *finalHtml;
         if ([html rangeOfString:@"<html"].location == NSNotFound) {
             finalHtml = [NSString stringWithFormat:wrapperHTML, html];
         } else {
             finalHtml = html;
         }
-        
+
         [_webView loadHTMLString:finalHtml baseURL:[[NSBundle mainBundle] bundleURL]];
     }
 }
@@ -379,7 +442,7 @@
 	_backButton.enabled = _webView.canGoBack;
 	_forwardButton.enabled = _webView.canGoForward;
 	[toolbar replaceItem:_refreshButton withItem:_stopButton];
-	
+
 	[loadingIndicator startAnimating];
 	titleLabel.text = @"Loading...";
 	urlField.text = [[webView.request URL] absoluteString];
@@ -389,11 +452,11 @@
 	_backButton.enabled = _webView.canGoBack;
 	_forwardButton.enabled = _webView.canGoForward;
 	[toolbar replaceItem:_stopButton withItem:_refreshButton];
-	
+
 	[loadingIndicator stopAnimating];
 	titleLabel.text = [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
 	urlField.text = [[webView.request URL] absoluteString];
-	
+
 	_firstRequest = NO;
 }
 
@@ -412,24 +475,24 @@
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {	
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
 	NSString *urlString;
-	
+
 	if ([textField.text rangeOfString:@"://"].length == 0) {
 		urlString = [NSString stringWithFormat:@"http://%@", textField.text];
 	} else {
 		urlString = textField.text;
 	}
-	
+
 	self.url = [NSURL URLWithString:urlString];
-	
+
 	[textField resignFirstResponder];
 	return NO;
 }
 
 - (BOOL)textFieldShouldClear:(UITextField *)textField {
 	[textField becomeFirstResponder];
-	
+
 	return YES;
 }
 

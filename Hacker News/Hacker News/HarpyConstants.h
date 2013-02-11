@@ -1,6 +1,6 @@
 //
 //  HarpyConstants.h
-//  
+//
 //
 //  Created by Arthur Ariel Sabintsev on 1/30/13.
 //
@@ -15,7 +15,7 @@
 static BOOL harpyForceUpdate = NO;
 
 // 2. Your AppID (found in iTunes Connect)
-#define kHarpyAppID                 @"573293275"
+#define kHarpyAppID                 @"601999950"
 
 // 3. Customize the alert title and action buttons
 #define kHarpyAlertViewTitle        @"Update Available"

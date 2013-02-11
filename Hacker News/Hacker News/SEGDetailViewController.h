@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SEGHNItem.h"
+#import "JHWebBrowser.h"
 
-@interface SEGDetailViewController : UIViewController
+@interface SEGDetailViewController : UIViewController <JHWebBrowserDelegate>
 
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) SEGHNItem *detailItem;
 
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property JHWebBrowser *browser;
+
+@property (nonatomic) bool viewComments;
+
 @end

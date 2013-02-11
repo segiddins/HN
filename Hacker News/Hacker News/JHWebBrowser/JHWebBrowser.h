@@ -18,6 +18,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol JHWebBrowserDelegate
+
+- (NSString *)titleToShare;
+
+@end
+
 @interface JHWebBrowser : UIViewController <UIWebViewDelegate, UITextFieldDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, readonly) IBOutlet UIWebView *webView;
@@ -38,6 +44,12 @@
 @property (nonatomic, strong) NSString *html;
 @property (nonatomic, strong) NSData *data;
 
+@property BOOL textOnlyView;
+@property (nonatomic) BOOL canDoTextOnly;
+@property NSURL *baseUrl;
+
+@property (nonatomic, weak)   NSObject <JHWebBrowserDelegate> *delegate;
+
 @end
 
 
@@ -51,3 +63,5 @@
 - (void)replaceItem:(UIBarButtonItem *)oldItem withItem:(UIBarButtonItem *)item;
 
 @end
+
+

@@ -7,12 +7,16 @@
 //
 
 #import "SEGAppDelegate.h"
+#import "Harpy.h"
 
 @implementation SEGAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Crashlytics startWithAPIKey:***REMOVED***];
     // Override point for customization after application launch.
+    [self customizeUIAppearance];
+//    [Harpy checkVersion];
     return YES;
 }
 							
@@ -41,6 +45,14 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)customizeUIAppearance
+{
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:255.0f/255 green:105.0f/255 blue:0.0f/255 alpha:.7]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{UITextAttributeTextColor: [UIColor blackColor],
+                          UITextAttributeTextShadowColor:[UIColor clearColor]
+     }];
 }
 
 @end

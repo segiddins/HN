@@ -7,7 +7,28 @@
 //
 
 #import "SEGMappingProvider.h"
+#import "SEGHNItem.h"
 
 @implementation SEGMappingProvider
+
++ (RKMapping *)newsItemMapping
+{
+    static RKObjectMapping *mapping;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        mapping = [RKObjectMapping mappingForClass:[SEGHNItem class]];
+        [mapping addAttributeMappingsFromDictionary:@{
+            @"id": @"itemID"}];
+        [mapping addAttributeMappingsFromArray:@[
+            @"points",
+            @"username",
+            @"url",
+            @"domain",
+            @"create_ts",
+            @"type",
+            @"title"]];
+    });
+    return mapping;
+}
 
 @end

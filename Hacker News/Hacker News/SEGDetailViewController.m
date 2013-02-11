@@ -7,6 +7,7 @@
 //
 
 #import "SEGDetailViewController.h"
+#import "SEGHNItem.h"
 
 @interface SEGDetailViewController ()
 - (void)configureView;
@@ -16,11 +17,11 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
+- (void)setDetailItem:(SEGHNItem *)newDetailItem
 {
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
-        
+
         // Update the view.
         [self configureView];
     }
@@ -29,23 +30,65 @@
 - (void)configureView
 {
     // Update the user interface for the detail item.
-
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:@selector(toggleComment)];
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        if (self.detailItem.url && !self.viewComments) {
+            self.browser.url = [NSURL URLWithString: self.detailItem.url];
+            self.navigationItem.title = nil;
+            self.navigationItem.rightBarButtonItem.title = @"Comments";
+            self.browser.canDoTextOnly = YES;
+        } else {
+            [self.browser setUrl:[NSURL URLWithString: [NSString stringWithFormat: @"http://news.ycombinator.com/item?id=%@", self.detailItem.itemID]]];
+            if (self.detailItem.url) {
+                self.navigationItem.rightBarButtonItem.title = @"Linked Page";
+                self.navigationItem.title = @"Comments";
+            } else {
+                self.navigationItem.title = @"Post";
+                self.navigationItem.rightBarButtonItem = nil;
+            }
+            self.browser.canDoTextOnly = NO;
+        }
+        self.browser.textOnlyView = NO;
     }
+}
+
+- (void)toggleComment
+{
+    self.viewComments = !self.viewComments;
+}
+
+- (void)setViewComments:(bool)viewComments
+{
+    self->_viewComments = viewComments;
+    [self configureView];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    _browser = [JHWebBrowser new];
+    _browser.delegate = self;
     [self configureView];
+    CGRect frame = self.view.bounds;
+//    frame.size.height -= 50;
+    self.browser.view.frame = frame;
+    [self.view addSubview:self.browser.view];
+    self.browser.showAddressBar = NO;
+    self.browser.showTitleBar = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ? YES : NO;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Browser Delegate Methods
+
+- (NSString *)titleToShare
+{
+    return self.detailItem.title;
 }
 
 @end

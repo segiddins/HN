@@ -10,4 +10,13 @@
 
 @interface SEGHNItem : NSObject
 
+@property NSNumber *itemID;
+@property NSNumber *points;
+@property NSString *username;
+@property NSString *url;
+@property NSString *domain;
+@property NSDate   *create_ts;
+@property NSString *type;
+@property NSString *title;
+
 @end

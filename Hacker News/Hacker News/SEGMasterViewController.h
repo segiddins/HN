@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SEGDetailViewController.h"
 
 @interface SEGMasterViewController : UITableViewController
+
+@property SEGDetailViewController *dvc;
 
 @end

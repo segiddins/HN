@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SEGMasterViewController.h"
+#import "SEGDetailViewController.h"
+
 @interface SEGRootViewController : UISplitViewController
+
+@property SEGMasterViewController *mvc;
+@property SEGDetailViewController *dvc;
 
 @end
