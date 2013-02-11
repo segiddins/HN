@@ -40,7 +40,7 @@
     }];
     [self.tableView.pullToRefreshView setTitle:@"Pull to reload..." forState:SVPullToRefreshStateAll];
     [self.tableView.pullToRefreshView setTitle:@"Release to reload..." forState:SVPullToRefreshStateTriggered];
-    
+
     [self loadItems];
 }
 
@@ -72,7 +72,7 @@
             [self.tableView.pullToRefreshView stopAnimating];
             [SVProgressHUD showErrorWithStatus:@"Download Failed :("];
         }];
-        
+
         [operation start];
     });
 }
@@ -156,9 +156,10 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
     if (!self.dvc) {
         self.dvc = [[SEGDetailViewController alloc] init];
-        
+
         NSLog(@"%@", self.dvc);
     }
     NSLog(@"%@", self.parentViewController.parentViewController);
@@ -166,10 +167,12 @@
     NSLog(@"%@", ((UISplitViewController *)self.parentViewController.parentViewController).viewControllers);
     [self.dvc setDetailItem:[_objects objectAtIndex:indexPath.row]];
     [self.dvc setViewComments:YES];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
     if (!self.dvc) {
         self.dvc = [[SEGDetailViewController alloc] init];
         NSLog(@"%@", self.dvc);
@@ -179,6 +182,7 @@
     NSLog(@"%@", ((UISplitViewController *)self.parentViewController.parentViewController).viewControllers);
     [self.dvc setDetailItem:[_objects objectAtIndex:indexPath.row]];
     [self.dvc setViewComments:NO];
+    }
 }
 
 @end

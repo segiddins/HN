@@ -364,6 +364,9 @@
 }
 
 - (IBAction)actionButtonPressed:(id)sender {
+    if (!self.url) {
+        return;
+    }
 //	UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"Open in Safari" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Yes", nil];
 //
 //    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
@@ -387,13 +390,18 @@
 
     UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:appActivities];
     activityVC.excludedActivityTypes = @[UIActivityTypePostToWeibo];
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        self.activityPopover = [[UIPopoverController alloc] initWithContentViewController:activityVC];
-        [self.activityPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    if (!self.activityPopover.isPopoverVisible) {
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+            self.activityPopover = [[UIPopoverController alloc] initWithContentViewController:activityVC];
+            [self.activityPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        }
+        else {
+            [self presentViewController:activityVC animated:TRUE completion:nil];
+        }
+    } else {
+        [self.activityPopover dismissPopoverAnimated:YES];
     }
-    else {
-        [self presentViewController:activityVC animated:TRUE completion:nil];
-    }
+
 }
 
 - (void)backAction {
@@ -522,6 +530,14 @@
 	if (buttonIndex == 0 && ! [[[[_webView request] URL] absoluteString] isEqualToString:@""]) {
 		[[UIApplication sharedApplication] openURL:[[_webView request] URL]];
 	}
+}
+
+
+#pragma mark - UIPopoverControllerDelegate
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    NSLog(@"dismissing popover");
 }
 
 @end

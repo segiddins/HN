@@ -6,7 +6,7 @@
 //
 //
 
-#warning Please customize Harpy's static variables
+//#warning Please customize Harpy's static variables
 
 /*
  Option 1 (DEFAULT): NO gives user option to update during next session launch

@@ -24,7 +24,7 @@
 
 @end
 
-@interface JHWebBrowser : UIViewController <UIWebViewDelegate, UITextFieldDelegate, UIActionSheetDelegate>
+@interface JHWebBrowser : UIViewController <UIWebViewDelegate, UITextFieldDelegate, UIActionSheetDelegate, UIPopoverControllerDelegate>
 
 @property (nonatomic, readonly) IBOutlet UIWebView *webView;
 
