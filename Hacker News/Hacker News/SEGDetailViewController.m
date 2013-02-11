@@ -36,15 +36,18 @@
             self.browser.url = [NSURL URLWithString: self.detailItem.url];
             self.navigationItem.title = nil;
             self.navigationItem.rightBarButtonItem.title = @"Comments";
+            [self.browser setCanShowCommentButton:YES];
             self.browser.canDoTextOnly = YES;
         } else {
             [self.browser setUrl:[NSURL URLWithString: [NSString stringWithFormat: @"http://news.ycombinator.com/item?id=%@", self.detailItem.itemID]]];
             if (self.detailItem.url) {
                 self.navigationItem.rightBarButtonItem.title = @"Linked Page";
                 self.navigationItem.title = @"Comments";
+                [self.browser setCanShowCommentButton:YES];
             } else {
                 self.navigationItem.title = @"Post";
                 self.navigationItem.rightBarButtonItem = nil;
+                [self.browser setCanShowCommentButton:NO];
             }
             self.browser.canDoTextOnly = NO;
         }

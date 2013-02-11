@@ -46,6 +46,7 @@
 
 @property BOOL textOnlyView;
 @property (nonatomic) BOOL canDoTextOnly;
+@property (nonatomic) BOOL canShowCommentButton;
 @property NSURL *baseUrl;
 
 @property (nonatomic, weak)   NSObject <JHWebBrowserDelegate> *delegate;

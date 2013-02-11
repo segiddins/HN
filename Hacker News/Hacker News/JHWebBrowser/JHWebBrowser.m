@@ -324,7 +324,7 @@
         [toolBarItems addObjectsFromArray:@[_instapaperButton, fSpace]];
     }
 
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad && (self.canDoTextOnly || self.canShowCommentButton)) {
         _toggleCommentButton = [[UIBarButtonItem alloc] initWithTitle:@"Comments" style:UIBarButtonItemStyleBordered target:self.presentingViewController action:@selector(toggleComment)];
         [toolBarItems addObjectsFromArray:@[_toggleCommentButton,fSpace]];
     }
@@ -356,6 +356,11 @@
     }
     self.textOnlyView = !self.textOnlyView;
     [self setShowTitleBar:(!self.textOnlyView && [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)];
+}
+
+- (void)setCanShowCommentButton:(BOOL)canShowCommentButton {
+    self->_canShowCommentButton = canShowCommentButton;
+    [self setToolbarButtons];
 }
 
 - (IBAction)actionButtonPressed:(id)sender {
