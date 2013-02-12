@@ -157,31 +157,37 @@
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-    if (!self.dvc) {
-        self.dvc = [[SEGDetailViewController alloc] init];
-
-        NSLog(@"%@", self.dvc);
-    }
-    NSLog(@"%@", self.parentViewController.parentViewController);
-    [(UISplitViewController *)self.parentViewController.parentViewController setViewControllers:@[self.parentViewController, self.dvc]];
-    NSLog(@"%@", ((UISplitViewController *)self.parentViewController.parentViewController).viewControllers);
-    [self.dvc setDetailItem:[_objects objectAtIndex:indexPath.row]];
-    [self.dvc setViewComments:YES];
+        if (!self.dvc) {
+            self.dvc = [[SEGDetailViewController alloc] init];
+        }
+        [(UISplitViewController *)self.parentViewController.parentViewController setViewControllers:@[self.parentViewController, self.dvc]];
+        [self clearAllSelectionsInTableView:tableView exceptFor:indexPath];
+        [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+        [self.dvc setDetailItem:[_objects objectAtIndex:indexPath.row]];
+        [self.dvc setViewComments:YES];
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-    if (!self.dvc) {
-        self.dvc = [[SEGDetailViewController alloc] init];
-        NSLog(@"%@", self.dvc);
+        if (!self.dvc) {
+            self.dvc = [[SEGDetailViewController alloc] init];
+        }
+        [(UISplitViewController *)self.parentViewController.parentViewController setViewControllers:@[self.parentViewController, self.dvc]];
+        [self clearAllSelectionsInTableView:tableView exceptFor:indexPath];
+        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        [self.dvc setDetailItem:[_objects objectAtIndex:indexPath.row]];
+        [self.dvc setViewComments:NO];
     }
-    NSLog(@"%@", self.parentViewController.parentViewController);
-    [(UISplitViewController *)self.parentViewController.parentViewController setViewControllers:@[self.parentViewController, self.dvc]];
-    NSLog(@"%@", ((UISplitViewController *)self.parentViewController.parentViewController).viewControllers);
-    [self.dvc setDetailItem:[_objects objectAtIndex:indexPath.row]];
-    [self.dvc setViewComments:NO];
+}
+
+- (void)clearAllSelectionsInTableView:(UITableView *)tableView exceptFor:(NSIndexPath *)indexPath
+{
+    for (NSIndexPath *path in tableView.indexPathsForSelectedRows) {
+        if (![path isEqual:indexPath]) {
+            [tableView deselectRowAtIndexPath:path animated:NO];
+        }
     }
 }
 

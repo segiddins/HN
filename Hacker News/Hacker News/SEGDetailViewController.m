@@ -76,15 +76,20 @@
     CGRect frame = self.view.bounds;
 //    frame.size.height -= 50;
     self.browser.view.frame = frame;
-    [self.view addSubview:self.browser.view];
     self.browser.showAddressBar = NO;
     self.browser.showTitleBar = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ? YES : NO;
+    [self.view addSubview:self.browser.view];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
 }
 
 #pragma mark - Browser Delegate Methods

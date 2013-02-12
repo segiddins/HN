@@ -24,6 +24,9 @@
 #import "TUSafariActivity.h"
 #import "ALBPinbookActivity.h"
 
+// SVProgressHUD
+#import <SVProgressHUD/SVProgressHUD.h>
+
 
 @interface JHWebBrowser ()
 
@@ -383,12 +386,13 @@
     ZYInstapaperActivity *instapaperActivity = [ZYInstapaperActivity instance];
     TUSafariActivity     *safariActivity     = [[TUSafariActivity alloc] init];
     ALBPinbookActivity   *pinbookActivity    = [[ALBPinbookActivity alloc] init];
+    pinbookActivity.bookmarkParameters = @{ALBPinbookTitleParameterKey : [self.delegate titleToShare]};
 
 
-    NSArray *activityItems = @[self.url, [self.delegate titleToShare]];
+    NSArray *activityItems = @[[self.delegate titleToShare], self.url];
     NSArray *appActivities = @[chromeActivity, instapaperActivity, safariActivity, pinbookActivity];
 
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:appActivities];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:appActivities];
     activityVC.excludedActivityTypes = @[UIActivityTypePostToWeibo];
     if (!self.activityPopover.isPopoverVisible) {
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
@@ -396,7 +400,7 @@
             [self.activityPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         }
         else {
-            [self presentViewController:activityVC animated:TRUE completion:nil];
+            [((UIViewController *)self.delegate) presentViewController:activityVC animated:TRUE completion:NULL];
         }
     } else {
         [self.activityPopover dismissPopoverAnimated:YES];
@@ -456,30 +460,40 @@
 	_forwardButton.enabled = _webView.canGoForward;
 	[toolbar replaceItem:_refreshButton withItem:_stopButton];
 
-	[loadingIndicator startAnimating];
+//	[loadingIndicator startAnimating];
+    [SVProgressHUD show];
 	titleLabel.text = @"Loading...";
 	urlField.text = [[webView.request URL] absoluteString];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-	_backButton.enabled = _webView.canGoBack;
+
+    [SVProgressHUD dismiss];
+    [self cleanupWebViewLoad:webView];
+
+}
+
+- (void)cleanupWebViewLoad:(UIWebView *)webView {
+    _backButton.enabled = _webView.canGoBack;
 	_forwardButton.enabled = _webView.canGoForward;
 	[toolbar replaceItem:_stopButton withItem:_refreshButton];
+    
+//	[loadingIndicator stopAnimating];
 
-	[loadingIndicator stopAnimating];
 	titleLabel.text = [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
 	urlField.text = [[webView.request URL] absoluteString];
-
+    
 	_firstRequest = NO;
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
 	if ([error code] != -999) {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Could not connect to server." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-		[alert show];
+//		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Could not connect to server." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+//		[alert show];
+        [SVProgressHUD showErrorWithStatus:@"Could not connect to server"];
 	}
 
-	[self webViewDidFinishLoad:webView];
+	[self cleanupWebViewLoad:webView];
 }
 
 
@@ -537,7 +551,7 @@
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
-    NSLog(@"dismissing popover");
+
 }
 
 @end

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6148136456A144478191B74D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CAC119A532D4AB796A40EDF /* libPods.a */; };
+		C04AA52F16C9B3E000A8205B /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = C04AA52E16C9B3E000A8205B /* Icon-72.png */; };
+		C04AA53116C9B3E500A8205B /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C04AA53016C9B3E500A8205B /* Icon-72@2x.png */; };
+		C04AA53316C9B3F100A8205B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C04AA53216C9B3F100A8205B /* Icon.png */; };
+		C04AA53516C9B3F500A8205B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C04AA53416C9B3F500A8205B /* Icon@2x.png */; };
 		C0937CE016C814FE0048D9C6 /* TUSafariActivity.strings in Resources */ = {isa = PBXBuildFile; fileRef = C0937CC916C814FE0048D9C6 /* TUSafariActivity.strings */; };
 		C0937CE116C814FE0048D9C6 /* Safari.png in Resources */ = {isa = PBXBuildFile; fileRef = C0937CD616C814FE0048D9C6 /* Safari.png */; };
 		C0937CE216C814FE0048D9C6 /* Safari@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0937CD716C814FE0048D9C6 /* Safari@2x.png */; };
@@ -71,6 +75,10 @@
 /* Begin PBXFileReference section */
 		5CAC119A532D4AB796A40EDF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E6487CBD6F64EA6AEA354FE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		C04AA52E16C9B3E000A8205B /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		C04AA53016C9B3E500A8205B /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		C04AA53216C9B3F100A8205B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		C04AA53416C9B3F500A8205B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		C0937CCA16C814FE0048D9C6 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
 		C0937CCB16C814FE0048D9C6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
 		C0937CCC16C814FE0048D9C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
@@ -353,6 +361,10 @@
 		C0A3A33516C6D4EA0093E060 = {
 			isa = PBXGroup;
 			children = (
+				C04AA53416C9B3F500A8205B /* Icon@2x.png */,
+				C04AA53216C9B3F100A8205B /* Icon.png */,
+				C04AA53016C9B3E500A8205B /* Icon-72@2x.png */,
+				C04AA52E16C9B3E000A8205B /* Icon-72.png */,
 				C0A3A34716C6D4EA0093E060 /* Hacker News */,
 				C0A3A34016C6D4EA0093E060 /* Frameworks */,
 				C0A3A33F16C6D4EA0093E060 /* Products */,
@@ -586,6 +598,10 @@
 				C0937D3216C815340048D9C6 /* ZYAddItemViewController-iPad.xib in Resources */,
 				C0937D3416C815340048D9C6 /* ZYAddItemViewController.xib in Resources */,
 				C0937D3616C815340048D9C6 /* ZYCredentialsViewController.xib in Resources */,
+				C04AA52F16C9B3E000A8205B /* Icon-72.png in Resources */,
+				C04AA53116C9B3E500A8205B /* Icon-72@2x.png in Resources */,
+				C04AA53316C9B3F100A8205B /* Icon.png in Resources */,
+				C04AA53516C9B3F500A8205B /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
