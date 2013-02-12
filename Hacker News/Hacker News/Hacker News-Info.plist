@@ -24,7 +24,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>me.segiddins.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>me.segiddins.hacker-news</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
