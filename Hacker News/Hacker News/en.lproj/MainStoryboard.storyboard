@@ -8,7 +8,6 @@
         <scene sceneID="11">
             <objects>
                 <navigationController modalTransitionStyle="flipHorizontal" id="3" sceneMemberID="viewController">
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -52,10 +51,6 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" red="0.50980395078659058" green="0.50980395078659058" blue="0.50980395078659058" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
-                                <connections>
-                                    <segue destination="21" kind="push" identifier="Main Detail" id="jZb-fq-zAk"/>
-                                    <segue destination="21" kind="push" identifier="Accessory Detail" trigger="accessoryAction" id="eyk-Tz-YWV"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -70,21 +65,8 @@
             </objects>
             <point key="canvasLocation" x="459" y="64"/>
         </scene>
-        <!--Detail View Controller - Detail-->
-        <scene sceneID="24">
-            <objects>
-                <viewController storyboardIdentifier="" title="Detail" id="21" customClass="SEGDetailViewController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Detail" id="26"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="902" y="64"/>
-        </scene>
     </scenes>
     <classes>
-        <class className="SEGDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SEGDetailViewController.h"/>
-        </class>
         <class className="SEGMasterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SEGMasterViewController.h"/>
         </class>
@@ -94,7 +76,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="eyk-Tz-YWV"/>
-    </inferredMetricsTieBreakers>
 </document>

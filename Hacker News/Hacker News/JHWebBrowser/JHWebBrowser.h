@@ -21,6 +21,7 @@
 @protocol JHWebBrowserDelegate
 
 - (NSString *)titleToShare;
+- (NSString *)textOnlyHtml;
 
 @end
 

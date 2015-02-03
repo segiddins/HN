@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SEGHNComment.h"
 
 @interface SEGHNItem : NSObject
 
-@property NSNumber *itemID;
+@property NSString *itemID;
+@property NSString *sigid;
 @property NSNumber *points;
 @property NSString *username;
 @property NSString *url;
@@ -18,5 +20,14 @@
 @property NSDate   *create_ts;
 @property NSString *type;
 @property NSString *title;
+@property (nonatomic) NSMutableArray  *comments;
+@property NSString *textView;
+@property UIImage  *leadImage;
+@property NSInteger commentCount;
+
+- (void)loadTextView;
+- (void)loadComments;
+
+- (SEGHNComment *)commentForIndexPath:(NSIndexPath *)indexPath;
 
 @end

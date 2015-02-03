@@ -12,4 +12,5 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import <Crashlytics/Crashlytics.h>
+#define IS_IPAD ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
 #endif

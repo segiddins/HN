@@ -8,6 +8,7 @@
 
 #import "SEGMappingProvider.h"
 #import "SEGHNItem.h"
+#import "SEGHNComment.h"
 
 @implementation SEGMappingProvider
 
@@ -18,7 +19,9 @@
     dispatch_once(&onceToken, ^{
         mapping = [RKObjectMapping mappingForClass:[SEGHNItem class]];
         [mapping addAttributeMappingsFromDictionary:@{
-            @"id": @"itemID"}];
+            @"id": @"itemID",
+            @"_id": @"sigid"
+         }];
         [mapping addAttributeMappingsFromArray:@[
             @"points",
             @"username",
@@ -27,6 +30,25 @@
             @"create_ts",
             @"type",
             @"title"]];
+    });
+    return mapping;
+}
+
++ (RKMapping *)commentMapping
+{
+    static RKObjectMapping *mapping;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        mapping = [RKObjectMapping mappingForClass:[SEGHNComment class]];
+        [mapping addAttributeMappingsFromDictionary:@{
+            @"text":@"commentText",
+            @"parent_sigid":@"parentSigid",
+            @"_id":@"sigid"
+         }];
+        [mapping addAttributeMappingsFromArray:@[
+            @"username",
+            @"create_ts"
+        ]];
     });
     return mapping;
 }

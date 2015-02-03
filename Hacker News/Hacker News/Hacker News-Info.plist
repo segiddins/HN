@@ -55,6 +55,15 @@
 		<dict>
 			<key>Style</key>
 			<string>UIBarStyleDefault</string>
+			<key>TintColor</key>
+			<dict>
+				<key>Blue</key>
+				<real>0.1830190271139145</real>
+				<key>Green</key>
+				<real>0.4028266966342926</real>
+				<key>Red</key>
+				<real>0.9890366792678833</real>
+			</dict>
 			<key>Translucent</key>
 			<false/>
 		</dict>
@@ -64,7 +73,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
+	<key>UIInterfaceOrientation</key>
+	<string>UIInterfaceOrientationPortrait</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>

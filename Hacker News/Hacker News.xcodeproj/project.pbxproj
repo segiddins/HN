@@ -17,6 +17,12 @@
 		C04AA53F16C9DFF100A8205B /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C04AA53E16C9DFF100A8205B /* Default-Landscape@2x~ipad.png */; };
 		C04AA54016C9E02300A8205B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C04AA53616C9DFB800A8205B /* Default.png */; };
 		C04AA54116C9E02900A8205B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C04AA53816C9DFD600A8205B /* Default@2x.png */; };
+		C05B1B9616FF600A00C47551 /* NSString+GTMNSString_HTML_h.m in Sources */ = {isa = PBXBuildFile; fileRef = C05B1B9516FF600A00C47551 /* NSString+GTMNSString_HTML_h.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C05B1B9A16FF66C800C47551 /* reset.css in Resources */ = {isa = PBXBuildFile; fileRef = C05B1B9816FF66C800C47551 /* reset.css */; };
+		C05B1B9B16FF66C800C47551 /* typography.css in Resources */ = {isa = PBXBuildFile; fileRef = C05B1B9916FF66C800C47551 /* typography.css */; };
+		C06A2AF616FE3E38005FDE26 /* SEGCommentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C06A2AF516FE3E38005FDE26 /* SEGCommentListViewController.m */; };
+		C06A2AFC16FE7878005FDE26 /* SEGCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C06A2AFB16FE7878005FDE26 /* SEGCommentCell.m */; };
+		C081710E1700024400C1DCAE /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = C081710D1700024400C1DCAE /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C0937CE016C814FE0048D9C6 /* TUSafariActivity.strings in Resources */ = {isa = PBXBuildFile; fileRef = C0937CC916C814FE0048D9C6 /* TUSafariActivity.strings */; };
 		C0937CE116C814FE0048D9C6 /* Safari.png in Resources */ = {isa = PBXBuildFile; fileRef = C0937CD616C814FE0048D9C6 /* Safari.png */; };
 		C0937CE216C814FE0048D9C6 /* Safari@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0937CD716C814FE0048D9C6 /* Safari@2x.png */; };
@@ -72,6 +78,7 @@
 		C0A3A38316C7F5AE0093E060 /* JHWebBrowser.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0A3A37D16C7F5AE0093E060 /* JHWebBrowser.xib */; };
 		C0A6355B16C88366006EE583 /* SEGRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A6355A16C88366006EE583 /* SEGRootViewController.m */; };
 		C0A6356016C88CAA006EE583 /* Harpy.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A6355E16C88CAA006EE583 /* Harpy.m */; };
+		C0BEBEF716E3F8B9005A7497 /* SEGHNComment.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BEBEF616E3F8B9005A7497 /* SEGHNComment.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +93,17 @@
 		C04AA53A16C9DFD900A8205B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		C04AA53C16C9DFEC00A8205B /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		C04AA53E16C9DFF100A8205B /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "../Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		C05B1B9416FF600A00C47551 /* NSString+GTMNSString_HTML_h.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GTMNSString_HTML_h.h"; sourceTree = "<group>"; };
+		C05B1B9516FF600A00C47551 /* NSString+GTMNSString_HTML_h.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GTMNSString_HTML_h.m"; sourceTree = "<group>"; };
+		C05B1B9716FF608D00C47551 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		C05B1B9816FF66C800C47551 /* reset.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = reset.css; path = "../../../../../Downloads/Better-Web-Readability-Project-CSS-Library/CSS/reset.css"; sourceTree = "<group>"; };
+		C05B1B9916FF66C800C47551 /* typography.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = typography.css; path = "../../../../../Downloads/Better-Web-Readability-Project-CSS-Library/CSS/typography.css"; sourceTree = "<group>"; };
+		C06A2AF416FE3E38005FDE26 /* SEGCommentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGCommentListViewController.h; sourceTree = "<group>"; };
+		C06A2AF516FE3E38005FDE26 /* SEGCommentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGCommentListViewController.m; sourceTree = "<group>"; };
+		C06A2AFA16FE7878005FDE26 /* SEGCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGCommentCell.h; sourceTree = "<group>"; };
+		C06A2AFB16FE7878005FDE26 /* SEGCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGCommentCell.m; sourceTree = "<group>"; };
+		C081710C1700024400C1DCAE /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
+		C081710D1700024400C1DCAE /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		C0937CCA16C814FE0048D9C6 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
 		C0937CCB16C814FE0048D9C6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
 		C0937CCC16C814FE0048D9C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TUSafariActivity.strings; sourceTree = "<group>"; };
@@ -160,9 +178,6 @@
 		C0A3A34F16C6D4EA0093E060 /* Hacker News-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hacker News-Prefix.pch"; sourceTree = "<group>"; };
 		C0A3A35016C6D4EA0093E060 /* SEGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEGAppDelegate.h; sourceTree = "<group>"; };
 		C0A3A35116C6D4EA0093E060 /* SEGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEGAppDelegate.m; sourceTree = "<group>"; };
-		C0A3A35316C6D4EA0093E060 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		C0A3A35516C6D4EA0093E060 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		C0A3A35716C6D4EA0093E060 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C0A3A35A16C6D4EA0093E060 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		C0A3A35C16C6D4EA0093E060 /* SEGMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEGMasterViewController.h; sourceTree = "<group>"; };
 		C0A3A35D16C6D4EA0093E060 /* SEGMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEGMasterViewController.m; sourceTree = "<group>"; };
@@ -186,6 +201,8 @@
 		C0A6355D16C88CAA006EE583 /* Harpy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Harpy.h; sourceTree = "<group>"; };
 		C0A6355E16C88CAA006EE583 /* Harpy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Harpy.m; sourceTree = "<group>"; };
 		C0A6355F16C88CAA006EE583 /* HarpyConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HarpyConstants.h; sourceTree = "<group>"; };
+		C0BEBEF516E3F8B9005A7497 /* SEGHNComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGHNComment.h; sourceTree = "<group>"; };
+		C0BEBEF616E3F8B9005A7497 /* SEGHNComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGHNComment.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -430,14 +447,18 @@
 		C0A3A34816C6D4EA0093E060 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C05B1B9816FF66C800C47551 /* reset.css */,
+				C05B1B9916FF66C800C47551 /* typography.css */,
+				C05B1B9716FF608D00C47551 /* GTMDefines.h */,
 				C04AA54216C9E03F00A8205B /* Images */,
 				C0A3A34916C6D4EA0093E060 /* Hacker News-Info.plist */,
 				C0A3A34A16C6D4EA0093E060 /* InfoPlist.strings */,
 				C0A3A34D16C6D4EA0093E060 /* main.m */,
 				C0A3A34F16C6D4EA0093E060 /* Hacker News-Prefix.pch */,
-				C0A3A35316C6D4EA0093E060 /* Default.png */,
-				C0A3A35516C6D4EA0093E060 /* Default@2x.png */,
-				C0A3A35716C6D4EA0093E060 /* Default-568h@2x.png */,
+				C05B1B9416FF600A00C47551 /* NSString+GTMNSString_HTML_h.h */,
+				C05B1B9516FF600A00C47551 /* NSString+GTMNSString_HTML_h.m */,
+				C081710C1700024400C1DCAE /* NSString+HTML.h */,
+				C081710D1700024400C1DCAE /* NSString+HTML.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -451,6 +472,8 @@
 				C0A3A36016C6D4EA0093E060 /* SEGDetailViewController.m */,
 				C0A6355916C88366006EE583 /* SEGRootViewController.h */,
 				C0A6355A16C88366006EE583 /* SEGRootViewController.m */,
+				C06A2AF416FE3E38005FDE26 /* SEGCommentListViewController.h */,
+				C06A2AF516FE3E38005FDE26 /* SEGCommentListViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -460,6 +483,8 @@
 			children = (
 				C0A3A35916C6D4EA0093E060 /* MainStoryboard.storyboard */,
 				C0A3A37316C72AFF0093E060 /* MainStoryboard_iPad.storyboard */,
+				C06A2AFA16FE7878005FDE26 /* SEGCommentCell.h */,
+				C06A2AFB16FE7878005FDE26 /* SEGCommentCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -471,6 +496,8 @@
 				C0A3A36B16C6D93D0093E060 /* SEGMappingProvider.m */,
 				C0A3A36D16C6D9FE0093E060 /* SEGHNItem.h */,
 				C0A3A36E16C6D9FE0093E060 /* SEGHNItem.m */,
+				C0BEBEF516E3F8B9005A7497 /* SEGHNComment.h */,
+				C0BEBEF616E3F8B9005A7497 /* SEGHNComment.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -624,6 +651,8 @@
 				C04AA53F16C9DFF100A8205B /* Default-Landscape@2x~ipad.png in Resources */,
 				C04AA54016C9E02300A8205B /* Default.png in Resources */,
 				C04AA54116C9E02900A8205B /* Default@2x.png in Resources */,
+				C05B1B9A16FF66C800C47551 /* reset.css in Resources */,
+				C05B1B9B16FF66C800C47551 /* typography.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,6 +716,11 @@
 				C0937D3816C815340048D9C6 /* ZYInstapaperActivityItem.m in Sources */,
 				C0A6355B16C88366006EE583 /* SEGRootViewController.m in Sources */,
 				C0A6356016C88CAA006EE583 /* Harpy.m in Sources */,
+				C0BEBEF716E3F8B9005A7497 /* SEGHNComment.m in Sources */,
+				C06A2AF616FE3E38005FDE26 /* SEGCommentListViewController.m in Sources */,
+				C06A2AFC16FE7878005FDE26 /* SEGCommentCell.m in Sources */,
+				C05B1B9616FF600A00C47551 /* NSString+GTMNSString_HTML_h.m in Sources */,
+				C081710E1700024400C1DCAE /* NSString+HTML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,5 +12,6 @@
 @interface SEGMappingProvider : NSObject
 
 + (RKMapping *)newsItemMapping;
++ (RKMapping *)commentMapping;
 
 @end

@@ -13,10 +13,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [Crashlytics startWithAPIKey:***REMOVED***];
+    [Crashlytics startWithAPIKey:nil];
     // Override point for customization after application launch.
     [self customizeUIAppearance];
-//    [Harpy checkVersion];
+    [Harpy checkVersion];
     return YES;
 }
 							

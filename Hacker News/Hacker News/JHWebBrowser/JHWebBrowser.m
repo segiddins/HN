@@ -17,6 +17,7 @@
 //
 
 #import "JHWebBrowser.h"
+#import <AFNetworking/AFNetworking.h>
 
 // Share items
 #import "ARChromeActivity.h"
@@ -120,6 +121,7 @@
 	[super viewDidUnload];
 
 	_webView.delegate = nil;
+    [SVProgressHUD dismiss];
 	[_webView stopLoading];
 }
 
@@ -170,8 +172,7 @@
 - (void)setHtml:(NSString *)inHtml {
     self->html = inHtml;
     self->data = nil;
-    self->html = nil;
-
+    self->url = nil;
     if (self.view) {
         [self loadContent];
     }
@@ -354,11 +355,12 @@
     if (self.textOnlyView) {
         self.url = self.baseUrl;
     } else {
-        self.baseUrl = url;
-        self.url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.instapaper.com/text?u=%@", self.baseUrl]];
+        self.baseUrl = self.url;
+//        self.url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.instapaper.com/text?u=%@", self.baseUrl]];
+        self.html = [self.delegate textOnlyHtml];
     }
     self.textOnlyView = !self.textOnlyView;
-    [self setShowTitleBar:(!self.textOnlyView && [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)];
+    [self setShowTitleBar:[[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad];
 }
 
 - (void)setCanShowCommentButton:(BOOL)canShowCommentButton {
@@ -431,13 +433,14 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 - (void)loadContent {
-    if (url) {
+    NSLog(@"url: %@\ndata: %@\nhtml: %@", url, data, html);
+    if (nil != url) {
         if ([_webView isLoading]) [_webView stopLoading];
         [_webView loadRequest:[NSURLRequest requestWithURL:url]];
         urlField.text = [url absoluteString];
-    } else if (data) {
+    } else if (nil != data) {
         [_webView loadData:data MIMEType:_dataMimeType textEncodingName:@"utf-8" baseURL:nil];
-    } else if (html) {
+    } else if (nil != html) {
         NSString *wrapperHTML = @"<html><head><meta name = \"viewport\" content = \"width = device-width\"><link rel=\"stylesheet\" media=\"all\" href=\"WebView.css\" /></head><body>%@</body></html>";
 
         NSString *finalHtml;
@@ -477,12 +480,12 @@
     _backButton.enabled = _webView.canGoBack;
 	_forwardButton.enabled = _webView.canGoForward;
 	[toolbar replaceItem:_stopButton withItem:_refreshButton];
-    
+
 //	[loadingIndicator stopAnimating];
 
 	titleLabel.text = [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
 	urlField.text = [[webView.request URL] absoluteString];
-    
+
 	_firstRequest = NO;
 }
 
